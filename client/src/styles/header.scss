@@ -1,0 +1,113 @@
+.container {
+        height: 13vh;
+        padding:25px 0;
+        max-width:83.33vw;
+        display: flex;
+        align-items: center;
+        // justify-content: space-between;
+        position: sticky;
+        top: 0;
+        z-index:1000;
+        background-color: white;
+        border-bottom: 2px solid rgb(253,228,228); 
+        .link{
+            text-decoration: none;
+            color:inherit;
+        }
+     
+        .logo{
+            margin-left: 7%;
+            height:80%;
+            margin-right: 20%;
+        }
+        h5{
+            font-size: 20px;
+            font-weight: bold;
+            margin: 0 2vw;
+        }
+    
+        h5:hover{
+            color: rgb(255,59,4);
+        }
+        .cartIcon{
+            height: 100%;
+            font-size:26px;
+            margin-left: 30%;
+            justify-content: center;
+        }
+        .userIcon{
+            font-size:24px;
+            margin-left: 40%;
+        }
+        .icons{
+            display: flex;
+            align-items: center;
+            margin-left: 15vw;
+           
+        }
+        .icons:hover{
+            cursor: pointer;
+        }
+        .cartNumberBadge{
+            margin-bottom: 3vh;
+            background-color: rgb(255,59,4);
+            padding:0.25px 6px;
+            border-radius: 50%;
+            color:white
+        }
+      
+}
+
+.modalFooter{
+    background-color: rgb(223,32,32);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.subTotal{
+    color:white;
+    font-weight: 800;
+    font-size: large;
+}
+.checkoutButton{
+    font-weight: 600;
+    border-radius: 10px;
+    border: none;
+    padding-left:10px;
+    padding-right: 10px;
+}
+.modalContainer{
+    margin-top: 1vh;
+    max-width: 20vw;
+    margin-left: 79vw;
+}
+.itemSummary{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.buttonGroup{
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    left:10.5vw;
+    position: absolute;
+}
+.plusButton{
+    background-color: #21ba45;
+    padding-left:0.5vw;
+    padding-right: 0.5vw;
+}
+.minusButton{
+    background-color: rgb(223,32,32);
+    padding-left:0.5vw;
+    padding-right: 0.5vw;
+}
+.quantityButton{
+    background-color: white;
+    padding-left:0.5vw;
+    padding-right: 0.5vw;
+}
+.itemRow{
+    margin-top: 2vh;
+}

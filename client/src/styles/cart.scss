@@ -1,0 +1,73 @@
+.cartSummary {
+    text-align: center;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+}
+
+.tableContainer {
+    width: 70%;
+    margin-left: 14vw;
+    margin-bottom: 3vh;
+}
+
+.tableImg {
+    width: 4vw;
+    height: 7vh;
+}
+
+.tableRow {
+    border: none;
+}
+
+td {
+    border-style: solid;
+    /* 边框样式为实线 */
+    border-width: 1px;
+    /* 边框宽度为1像素 */
+    text-align: center;
+}
+
+th {
+    border-bottom: solid;
+    border-top-style: solid;
+    border-top-width: 1px;
+    border-left-style: solid;
+    border-left-width: 1px;
+    border-right-style: solid;
+    border-right-width: 1px;
+   text-align: center;
+}
+
+.imgCol {
+    width:5vw
+}
+.subTotalContainer{
+    margin-left: 14vw;
+    .subTotalPrice{
+        font-size: larger;
+        font-weight: 700;
+        color:rgb(232,32,32)
+    }
+}
+.buttonGroupCheckout{
+    margin-left: 14vw;
+    margin-top: 3vh;
+    margin-bottom: 3vh;
+}
+.continueButton{
+    background-color: rgb(232,32,32);
+    color: white;
+    border-radius: 10px;
+    border: none;
+    padding-left: 1vw;
+    padding-right: 1vw;
+}
+.checkoutButtonCartPage{
+    margin-left: 2vw;
+    color: white;
+    background-color: rgb(232,32,32);
+    border-radius: 10px;
+    border: none;
+    padding-left: 1vw;
+    padding-right: 1vw;
+}

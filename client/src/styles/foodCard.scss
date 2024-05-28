@@ -1,0 +1,89 @@
+.foodTypeBanner{
+    display: flex;
+    width:80vw;
+    height: 8vh;
+    background-color: rgb(224,26,26);
+    margin:auto;
+    justify-content: center;
+    border-radius: 10px; /* 使用相同的圆角半径来创建圆角 */
+    
+}
+.foodCardContainer{
+    // width:100%;
+    // flex-wrap: wrap;
+    margin-top: 1vh;
+}
+.foodType{
+    color:white;
+    margin-left: 2vw; 
+}
+.foodTypeLogos{
+    margin-right: 0.8vw;
+    height: 55%;
+}
+.button{
+    margin-right: 1vw;
+    background-color: inherit;
+    border:none;
+    border-radius: 10px; /* 使用相同的圆角半径来创建圆角 */;
+    margin-top:15px;
+    margin-bottom: 15px
+}
+.button:hover{
+    background-color: white;
+    .foodTypeText{
+        color: rgb(224,26,26);
+    }
+}
+.foodTypeText{
+    font-size: large;
+    font-weight: 700;
+    padding-right: 1.5vw;
+}
+.cardOuterContainer{
+    height:100%;
+    width: 80vw;
+    margin-top:2%;
+    margin-left:10%;
+}
+
+.cardImgDiv{
+    display: flex;
+    justify-content: center;
+}
+.foodCard{
+    width: 25vw;
+    margin-bottom: 1vw;
+    // justify-content: center;
+    margin-right: 1%; 
+}
+
+.cardImg{
+    height:100%;
+    width:50%;
+  
+}
+
+.cartButton{
+    margin:auto;
+    border-radius: 8px;
+    background-color: rgb(224,26,26);
+    color:white;
+    border: none;
+    font-size: small;
+    // text-align: center; /* 水平居中 */
+    padding: 5px 5px; /* 调整按钮内边距 */
+}
+.priceDiv{
+    display: flex;
+    justify-content: center;
+    font-weight: 700;
+    color: rgb(224,26,26);
+}
+.cartButtonDiv{
+    display:flex;
+    justify-content: center;
+    padding-left: 2vw;
+    padding-right: 2vw;
+    margin-bottom: 1vw;
+}
