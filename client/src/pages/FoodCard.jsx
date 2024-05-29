@@ -43,6 +43,8 @@ export const FoodCard = () => {
           Authorization: "bearer " + process.env.REACT_APP_API_TOKEN,
         }
       })
+      console.log('res是',res)
+      console.log('res.data.data是',res.data.data)
       if (res.data.data?.length > 0) {
         setProductList(res.data.data)
         setFilteredData(res.data.data)
@@ -95,7 +97,7 @@ export const FoodCard = () => {
                   <Card.Img variant="top"
                     src={process.env.REACT_APP_UPLOAD_URL + item.attributes.img.data.attributes.url}
                     className='cardImg' />
-
+                  <div>{process.env.REACT_APP_UPLOAD_URL + item.attributes.img.data.attributes.url}</div>
                 </div>
                 <Card.Title style={{ textAlign: "center", fontSize: "medium" }}>{item.attributes.title}</Card.Title>
                 <Card.Text>
