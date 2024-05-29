@@ -3,7 +3,7 @@
     "routes": [
       {
         "src": "/api/(.*)",
-        "dest": "food-delivery-web-server.vercel.app/api/$1"
+        "dest": "https://food-delivery-web-frontend-cd178ga6m-jianfeizhu2516s-projects.vercel.app/api/$1"
       }
     ]
   }
