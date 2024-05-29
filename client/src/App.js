@@ -19,7 +19,7 @@ const router = createBrowserRouter([
     element:
       <div>
         <Header />
-        {/* <Home /> */}
+        <Home />
         <Footer />
       </div>
   },
@@ -46,7 +46,7 @@ const router = createBrowserRouter([
     element:
       <div>
         <Header />
-        {/* <Cart /> */}
+        <Cart />
         <Footer />
       </div>
   },
