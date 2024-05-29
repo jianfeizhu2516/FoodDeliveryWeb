@@ -37,7 +37,7 @@ const router = createBrowserRouter([
     element:
       <div>
         <Header />
-        {/* <FoodCard /> */}
+        <FoodCard />
         <Footer />
       </div>
   },
