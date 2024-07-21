@@ -35,7 +35,7 @@ export const Cart = () => {
           {cartItems.map((item) => (
             <tr className='tableRow'>
               <td>
-                <img className="tableImg" src={ process.env.REACT_APP_UPLOAD_URL + item.imgUrl} alt="" />
+                <img className="tableImg" src={item.image} alt="" />
               </td>
 
               <td>

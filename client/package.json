@@ -50,5 +50,6 @@
   },
   "devDependencies": {
     "dotenv-webpack": "^8.1.0"
-  }
+  },
+   "proxy": "http://localhost:8800/api/"
 }

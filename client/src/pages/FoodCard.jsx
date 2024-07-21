@@ -28,7 +28,7 @@ export const FoodCard = () => {
 
   useEffect(() => {
     if (selectedCategory !== "" && selectedCategory !== "all") {
-      const filtered = productList.filter((item) => item.attributes.category == selectedCategory)
+      const filtered = productList.filter((item) => item.category === selectedCategory)
       setFilteredData(filtered)
       console.log('filteredData是',filteredData)
     } else{
@@ -38,18 +38,15 @@ export const FoodCard = () => {
 
   const fetchData = async () => {
     try {
-      const res = await axios.get(process.env.REACT_APP_API_URL + "/products?populate=*", {
-        headers: {
-          Authorization: "bearer " + process.env.REACT_APP_API_TOKEN,
-        }
-      })
+      const res = await axios.get("/products")
       console.log('res是',res)
-      console.log('res.data.data是',res.data.data)
-      if (res.data.data?.length > 0) {
-        setProductList(res.data.data)
-        setFilteredData(res.data.data)
+      console.log('res.data',res.data)
+      if (res.data?.length > 0) {
+        setProductList(res.data)
+        setFilteredData(res.data)
       }
-    } catch (err) {
+      }
+       catch (err) {
       console.log(err)
     }
   }
@@ -95,16 +92,16 @@ export const FoodCard = () => {
               <Card className='foodCard'>
                 <div className='cardImgDiv'>
                   <Card.Img variant="top"
-                    src={process.env.REACT_APP_UPLOAD_URL + item.attributes.img.data.attributes.url}
+                    src={item.image}
                     className='cardImg' />
                 </div>
-                <Card.Title style={{ textAlign: "center", fontSize: "medium" }}>{item.attributes.title}</Card.Title>
+                <Card.Title style={{ textAlign: "center", fontSize: "medium" }}>{item.name}</Card.Title>
                 <Card.Text>
                   <div className='priceDiv'>
-                    <span>{'$' + item.attributes.price}</span>
+                    <span>{'$' + item.price}</span>
                   </div>
                   <div className='cartButtonDiv'>
-                    <button className="cartButton" onClick={() => addToCartClick(item.attributes)}>
+                    <button className="cartButton" onClick={() => addToCartClick(item)}>
                       <span style={{ padding: "1vw" }}>Add to Cart</span>
                     </button>
                   </div>
