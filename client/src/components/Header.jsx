@@ -74,7 +74,7 @@ export const Header = () => {
                     {cartItems.map((item, index) => (
                         <div className='itemRow'>
                             <span className='itemSummary'>
-                                <h6 key={index} style={{maxWidth:"10vw"}}>{item.title}</h6>
+                                <h6 key={index} style={{maxWidth:"10vw"}}>{item.name}</h6>
                                 <div className='buttonGroup'>
 
                                     <button className='plusButton' onClick={()=>{dispatch(addItemToCart(item))}}>+</button>

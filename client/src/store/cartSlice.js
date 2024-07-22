@@ -42,7 +42,7 @@ const cartSlice = createSlice({
       console.log('newItem是',newItem)
       state.subTotal += newItem.price;
 
-      const existingItem = state.cartItems.find(item => item.title == newItem.title)
+      const existingItem = state.cartItems.find(item => item.name == newItem.name)
       if (existingItem) {
         existingItem.quantity += 1;
       }
@@ -50,9 +50,9 @@ const cartSlice = createSlice({
         state.cartItems.push(
           {
             id: newItem.id,
-            title: newItem.title,
+            name: newItem.name,
             price: newItem.price,
-            imgUrl: newItem.img.data.attributes.url,
+            imgUrl: newItem.image,
             category: newItem.category,
             quantity:1
           }

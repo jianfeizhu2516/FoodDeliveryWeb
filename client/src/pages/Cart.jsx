@@ -26,7 +26,7 @@ export const Cart = () => {
         <thead>
           <tr>
             <th className='imgCol'>Image</th>
-            <th className='productCol'>Product Title</th>
+            <th className='productCol'>Product Name</th>
             <th className='quantityCol'>Quantity</th>
             <th className='priceCol'>Price</th>
           </tr>
@@ -39,7 +39,7 @@ export const Cart = () => {
               </td>
 
               <td>
-                <h6>{item.title}</h6>
+                <h6>{item.name}</h6>
               </td>
 
               <td>
