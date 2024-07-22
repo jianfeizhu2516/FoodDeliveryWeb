@@ -38,7 +38,7 @@ export const FoodCard = () => {
 
   const fetchData = async () => {
     try {
-       const res = await axios.get('https://food-delivery-web-ne9c.vercel.app/api/products/');
+       const res = await axios.get('https://food-delivery-web-ne9c-noz9nhfp0-jianfeizhu2516s-projects.vercel.app/api/products');
       if (res.data?.length > 0) {
         setProductList(res.data)
         setFilteredData(res.data)
