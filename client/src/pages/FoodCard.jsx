@@ -38,7 +38,7 @@ export const FoodCard = () => {
 
   const fetchData = async () => {
     try {
-      const res = await axios.get(`${process.env.REACT_APP_API_URL}/products`);
+      const res = await axios.get('https://food-delivery-web-ne9c.vercel.app/api/products');
       console.log('API URL:', process.env.REACT_APP_API_URL);
       console.log('res是',res)
       console.log('res.data',res.data)
