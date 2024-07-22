@@ -38,7 +38,8 @@ export const FoodCard = () => {
 
   const fetchData = async () => {
     try {
-      const res = await axios.get("/products")
+      const res = await axios.get(`${process.env.REACT_APP_API_URL}/products`);
+      console.log('API URL:', process.env.REACT_APP_API_URL);
       console.log('res是',res)
       console.log('res.data',res.data)
       if (res.data?.length > 0) {
