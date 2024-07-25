@@ -52,7 +52,8 @@ export const Header = () => {
                     {totalQuantity}
                 </span>
 
-                <span className='userIcon'>
+                <span className='userIcon' onClick={()=>{navigate("/login");
+}}>
                     <i class="ri-user-line"></i>
                 </span>
             </div>

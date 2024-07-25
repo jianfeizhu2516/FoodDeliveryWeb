@@ -1,0 +1,39 @@
+
+
+.loginContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // border: 2px solid rgb(223, 32, 32);
+    width: 25vw;
+    height: 25vh;
+    margin-left: 40vw;
+    border-radius: 5px;
+    margin-top: 2vh;
+    flex:1;
+}
+
+.loginForm{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+input {
+    padding: 5px;
+    margin-bottom: 1vh;
+
+  }
+   button {
+          padding: 5px;
+          border: none;
+          background-color: rgb(224, 26, 26);
+          cursor: pointer;
+          color: white;
+          margin-top: 1vh;
+        }
+
+.loginLink {
+    display: flex;
+    justify-content: center;
+    margin-top: 1vh;
+}

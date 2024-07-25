@@ -30,7 +30,6 @@ export const FoodCard = () => {
     if (selectedCategory !== "" && selectedCategory !== "all") {
       const filtered = productList.filter((item) => item.category === selectedCategory)
       setFilteredData(filtered)
-      console.log('filteredData是',filteredData)
     } else{
       setFilteredData(productList)
     }
@@ -38,7 +37,7 @@ export const FoodCard = () => {
 
   const fetchData = async () => {
     try {
-       const res = await axios.get('https://food-delivery-web-ne9c-noz9nhfp0-jianfeizhu2516s-projects.vercel.app/api/products');
+       const res = await axios.get(`${process.env.REACT_APP_API_URL_LOCAL}/api/products`);
       if (res.data?.length > 0) {
         setProductList(res.data)
         setFilteredData(res.data)

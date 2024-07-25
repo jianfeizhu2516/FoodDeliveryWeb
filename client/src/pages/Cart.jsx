@@ -55,7 +55,7 @@ export const Cart = () => {
       </table>
       
       
-        <h5 className='subTotalContainer'>Subotal:  $
+        <h5 className='subTotalContainer'>Subotal:$
         <span className='subTotalPrice'>{subTotal}</span>
         </h5>
 

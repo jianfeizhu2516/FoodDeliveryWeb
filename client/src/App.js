@@ -4,20 +4,22 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
-import  Header  from './components/Header';
+import Header from './components/Header';
 import Footer from './components/Footer';
 import Home from './pages/Home';
 import FoodDetail from './pages/FoodDetail';
 import FoodCard from './pages/FoodCard';
 import Cart from './pages/Cart';
 import Checkout from './pages/Checkout';
+import Login from "./pages/Login"
+import Signup from "./pages/Signup"
 import 'remixicon/fonts/remixicon.css'
-
+import "./styles/routerStyle.scss"
 const router = createBrowserRouter([
   {
     path: "/",
     element:
-      <div>
+      <div className='pageDiv'>
         <Header />
         <Home />
         <Footer />
@@ -26,7 +28,7 @@ const router = createBrowserRouter([
   {
     path: "/foodDetail",
     element:
-      <div>
+      <div className='pageDiv'>
         <Header />
         <FoodDetail />
         <Footer />
@@ -35,7 +37,7 @@ const router = createBrowserRouter([
   {
     path: "/foods",
     element:
-      <div>
+      <div className='pageDiv'>
         <Header />
         <FoodCard />
         <Footer />
@@ -44,7 +46,7 @@ const router = createBrowserRouter([
   {
     path: "/cart",
     element:
-      <div>
+      <div className='pageDiv'>
         <Header />
         <Cart />
         <Footer />
@@ -53,7 +55,7 @@ const router = createBrowserRouter([
   {
     path: "/checkout",
     element:
-      <div>
+      <div className='pageDiv'>
         <Header />
         <Checkout />
         <Footer />
@@ -62,11 +64,29 @@ const router = createBrowserRouter([
   {
     path: "/contact",
     element:
-      <div>
+      <div className='pageDiv'>
         <Header />
         <Footer />
       </div>
   },
+  {
+    path: "/login",
+    element:
+      <div className='pageDiv'>
+        <Header />
+        <Login style={{flex:1}}/>
+        <Footer />
+      </div >
+  },
+{
+  path: "/signup",
+    element:
+  <div className='pageDiv'>
+    <Header />
+    <Signup />
+    <Footer />
+  </div>
+},
 
 ]);
 function App() {

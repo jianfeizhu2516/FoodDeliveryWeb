@@ -28,7 +28,7 @@ const cartSlice = createSlice({
 
       existingItem.quantity -= 1;
 
-      state.subTotal -= newItem.price;
+      state.subTotal -= Number(newItem.price);
 
       if(existingItem.quantity === 0){
         state.cartItems = state.cartItems.filter(item=>item.id != newItem.id);
@@ -40,7 +40,7 @@ const cartSlice = createSlice({
    
       const newItem = action.payload;
       console.log('newItem是',newItem)
-      state.subTotal += newItem.price;
+      state.subTotal += Number(newItem.price);
 
       const existingItem = state.cartItems.find(item => item.name == newItem.name)
       if (existingItem) {
@@ -52,7 +52,7 @@ const cartSlice = createSlice({
             id: newItem.id,
             name: newItem.name,
             price: newItem.price,
-            imgUrl: newItem.image,
+            image: newItem.image,
             category: newItem.category,
             quantity:1
           }
