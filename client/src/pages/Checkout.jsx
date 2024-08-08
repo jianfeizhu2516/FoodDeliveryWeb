@@ -1,19 +1,23 @@
 import React, { useState, useEffect } from "react";
-
-
+import priceMapping from '../priceMapping.js';
+import { useSelector, useDispatch } from 'react-redux'
 export const Checkout = () => {
 
+  const cartItems = useSelector((state) => state.cart.cartItems)
   const handleClick = async ()=>{
-    const cartItems = [
-      { price: 'price_1PlKuLAAMFTLuMMi5TxkxfCg', quantity: 2 },
-    ];
+   
+    const itemsForCheckout = cartItems.map((item) => ({
+      price: priceMapping[item.id],
+      quantity: item.quantity,
+    }));
+  
     try{
       const response = await fetch('http://localhost:8800/create-checkout-session', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ items: cartItems }),
+        body: JSON.stringify({ items: itemsForCheckout }),
       });
 
       const session = await response.json();

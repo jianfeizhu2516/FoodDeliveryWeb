@@ -1,89 +1,143 @@
-.foodTypeBanner{
+.foodTypeBanner {
     display: flex;
-    width:80vw;
+    width: 80vw;
     height: 8vh;
     background-color: rgb(224,26,26);
-    margin:auto;
+    margin: auto;
     justify-content: center;
-    border-radius: 10px; /* 使用相同的圆角半径来创建圆角 */
+    border-radius: 10px;
     
-}
-.foodCardContainer{
-    // width:100%;
-    // flex-wrap: wrap;
+    @media (max-width: 768px) {
+      width: 90vw; /* 调整宽度以适应小屏幕 */
+      height: 10vh; /* 增加高度以便更好的适应小屏幕 */
+    }
+  }
+  
+  .foodCardContainer {
     margin-top: 1vh;
-}
-.foodType{
-    color:white;
-    margin-left: 2vw; 
-}
-.foodTypeLogos{
+  
+    @media (max-width: 768px) {
+      margin-top: 2vh; /* 调整间距 */
+    }
+  }
+  
+  .foodType {
+    color: white;
+    margin-left: 2vw;
+  
+    @media (max-width: 768px) {
+      margin-left: 1vw; /* 减少小屏幕上的间距 */
+      font-size: medium; /* 调整字体大小 */
+    }
+  }
+  
+  .foodTypeLogos {
     margin-right: 0.8vw;
     height: 55%;
-}
-.button{
+  
+    @media (max-width: 768px) {
+      margin-right: 0.5vw; /* 减少小屏幕上的间距 */
+    }
+  }
+  
+  .button {
     margin-right: 1vw;
     background-color: inherit;
-    border:none;
-    border-radius: 10px; /* 使用相同的圆角半径来创建圆角 */;
-    margin-top:15px;
-    margin-bottom: 15px
-}
-.button:hover{
-    background-color: white;
-    .foodTypeText{
-        color: rgb(224,26,26);
+    border: none;
+    border-radius: 10px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+  
+    @media (max-width: 768px) {
+      margin-right: 0.5vw; /* 减少按钮间距 */
+      padding: 10px 10px; /* 调整内边距 */
     }
-}
-.foodTypeText{
+  }
+  
+  .button:hover {
+    background-color: white;
+  
+    .foodTypeText {
+      color: rgb(224,26,26);
+    }
+  }
+  
+  .foodTypeText {
     font-size: large;
     font-weight: 700;
     padding-right: 1.5vw;
-}
-.cardOuterContainer{
-    height:100%;
+  
+    @media (max-width: 768px) {
+      font-size: medium; /* 调整字体大小 */
+      padding-right: 1vw; /* 减少间距 */
+    }
+  }
+  
+  .cardOuterContainer {
+    height: 100%;
     width: 80vw;
-    margin-top:2%;
-    margin-left:10%;
-}
-
-.cardImgDiv{
+    margin-top: 2%;
+    margin-left: 10%;
+  
+    @media (max-width: 768px) {
+      width: 90vw; /* 增加宽度以适应小屏幕 */
+      margin-left: 5%; /* 减少左边距 */
+    }
+  }
+  
+  .cardImgDiv {
     display: flex;
     justify-content: center;
-}
-.foodCard{
+  }
+  
+  .foodCard {
     width: 25vw;
     margin-bottom: 1vw;
-    // justify-content: center;
-    margin-right: 1%; 
-}
-
-.cardImg{
-    height:100%;
-    width:50%;
+    margin-right: 1%;
   
-}
-
-.cartButton{
-    margin:auto;
+    @media (max-width: 768px) {
+      width: 40vw; /* 调整卡片宽度 */
+      margin-bottom: 2vw; /* 增加底部间距 */
+    }
+  }
+  
+  .cardImg {
+    height: 100%;
+    width: 50%;
+  }
+  
+  .cartButton {
+    margin: auto;
     border-radius: 8px;
     background-color: rgb(224,26,26);
-    color:white;
+    color: white;
     border: none;
     font-size: small;
-    // text-align: center; /* 水平居中 */
-    padding: 5px 5px; /* 调整按钮内边距 */
-}
-.priceDiv{
+    padding: 5px 5px;
+  
+    @media (max-width: 768px) {
+      font-size: medium; /* 调整字体大小 */
+      padding: 8px 8px; /* 增加按钮内边距 */
+    }
+  }
+  
+  .priceDiv {
     display: flex;
     justify-content: center;
     font-weight: 700;
     color: rgb(224,26,26);
-}
-.cartButtonDiv{
-    display:flex;
+  }
+  
+  .cartButtonDiv {
+    display: flex;
     justify-content: center;
     padding-left: 2vw;
     padding-right: 2vw;
     margin-bottom: 1vw;
-}
+  
+    @media (max-width: 768px) {
+      padding-left: 1vw; /* 调整左右间距 */
+      padding-right: 1vw;
+      margin-bottom: 2vw; /* 增加底部间距 */
+    }
+  }

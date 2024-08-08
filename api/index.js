@@ -34,8 +34,8 @@ app.post('/create-checkout-session', async (req, res) => {
       payment_method_types: ['card'],
       line_items,
       mode: 'payment',
-      success_url: `${YOUR_DOMAIN}?success=true`,
-      cancel_url: `${YOUR_DOMAIN}?canceled=true`,
+      success_url: `${YOUR_DOMAIN}/successfulPayment`,
+      cancel_url: `${YOUR_DOMAIN}/failedPayment`,
     });
     console.log('Session created:', session); // 输出创建的 session
 

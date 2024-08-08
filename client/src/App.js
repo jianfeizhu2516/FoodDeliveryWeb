@@ -15,6 +15,8 @@ import Login from "./pages/Login"
 import Signup from "./pages/Signup"
 import 'remixicon/fonts/remixicon.css'
 import "./styles/routerStyle.scss"
+import SuccessPayment from './pages/SuccessPayment';
+import FailedPayment from './pages/FailedPayment';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -84,6 +86,24 @@ const router = createBrowserRouter([
   <div className='pageDiv'>
     <Header />
     <Signup />
+    <Footer />
+  </div>
+},
+{
+  path: "/successfulPayment",
+    element:
+  <div className='pageDiv'>
+    <Header />
+    <SuccessPayment />
+    <Footer />
+  </div>
+},
+{
+  path: "/failedPayment",
+    element:
+  <div className='pageDiv'>
+    <Header />
+    <FailedPayment />
     <Footer />
   </div>
 },
