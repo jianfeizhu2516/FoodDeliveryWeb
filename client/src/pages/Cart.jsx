@@ -17,6 +17,9 @@ export const Cart = () => {
     navigate("/foods");
   };
 
+  const handleCheckout = ()=>{
+    navigate("/checkout");
+  }
   
   return (
     <>
@@ -61,7 +64,7 @@ export const Cart = () => {
 
         <div className='buttonGroupCheckout'>
         <button className='continueButton' onClick={handleContinueShopping}>Continue Shopping</button>
-        <button className='checkoutButtonCartPage'>Proceed To Checkout</button>
+        <button className='checkoutButtonCartPage' onClick={handleCheckout}>Proceed To Checkout</button>
         </div>
   
 

@@ -4,21 +4,48 @@ import authRoutes from "./routes/auth.js"
 import cors from 'cors';
 import cookieParser from "cookie-parser";
 import dotenv from 'dotenv';
-
+import Stripe from 'stripe';
 dotenv.config();
 const app = express();
 app.use(cookieParser());
 app.use(cors({
-  origin: process.env.FRONTEND_URL,
+  origin: process.env.FRONTEND_URL || 'http://localhost:3000',
   credentials: true,
 }));
 app.use(express.json())
  
-
 app.use("/api/products", productRoutes);
 
 app.use("/api/auth", authRoutes);
 
+const YOUR_DOMAIN = 'http://localhost:3000';
+
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
+app.post('/create-checkout-session', async (req, res) => {
+  const { items } = req.body;
+  console.log('Items:', items); // 输出接收到的 items
+  const line_items = items.map(item => ({
+    price: item.price,
+    quantity: item.quantity,
+  }));
+
+  try{
+    const session = await stripe.checkout.sessions.create({
+      payment_method_types: ['card'],
+      line_items,
+      mode: 'payment',
+      success_url: `${YOUR_DOMAIN}?success=true`,
+      cancel_url: `${YOUR_DOMAIN}?canceled=true`,
+    });
+    console.log('Session created:', session); // 输出创建的 session
+
+    res.json({ url: session.url });
+  }catch(err){
+    console.log('Error creating checkout session:', err);
+    res.status(500).send('Internal Server Error!');
+  }
+  
+});
 
 app.get('/', (req, res) => {
   res.send('Hello from Express!');

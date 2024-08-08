@@ -32,7 +32,7 @@ export const Header = () => {
 
     const handleCheckout = ()=>{
         setShowModal(false)
-        navigate("/checkout")
+        navigate("/cart")
     }
 
 
