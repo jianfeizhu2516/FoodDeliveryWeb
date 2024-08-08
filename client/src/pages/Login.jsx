@@ -16,7 +16,7 @@ export const Login = () => {
     const submitForm = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post(`${process.env.REACT_APP_API_URL_LOCAL}/api/auth/login`,
+            const response = await axios.post(`${process.env.REACT_APP_API_URL}/api/auth/login`,
                 currentInputs,
                 { withCredentials: true }
             );

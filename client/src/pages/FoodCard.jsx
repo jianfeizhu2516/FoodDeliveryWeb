@@ -37,7 +37,7 @@ export const FoodCard = () => {
 
   const fetchData = async () => {
     try {
-       const res = await axios.get(`${process.env.REACT_APP_API_URL_LOCAL}/api/products`);
+       const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/products`);
       if (res.data?.length > 0) {
         setProductList(res.data)
         setFilteredData(res.data)

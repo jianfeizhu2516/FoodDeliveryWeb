@@ -18,7 +18,6 @@ app.use("/api/products", productRoutes);
 
 app.use("/api/auth", authRoutes);
 
-const YOUR_DOMAIN = 'http://localhost:3000';
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 app.post('/create-checkout-session', async (req, res) => {
@@ -34,8 +33,8 @@ app.post('/create-checkout-session', async (req, res) => {
       payment_method_types: ['card'],
       line_items,
       mode: 'payment',
-      success_url: `${YOUR_DOMAIN}/successfulPayment`,
-      cancel_url: `${YOUR_DOMAIN}/failedPayment`,
+      success_url: `${process.env.FRONTEND_URL}/successfulPayment`,
+      cancel_url: `${process.env.FRONTEND_URL}/failedPayment`,
     });
     console.log('Session created:', session); // 输出创建的 session
 
