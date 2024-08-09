@@ -9,7 +9,7 @@ dotenv.config();
 
 const app = express();
 app.use(cors({
-  origin: ' https://cors-anywhere.herokuapp.com/https://food-delivery-web-peach.vercel.app/',
+  origin: '*',
   credentials: true,
 }));
 app.use(cookieParser());
