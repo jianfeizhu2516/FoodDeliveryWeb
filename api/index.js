@@ -9,7 +9,7 @@ dotenv.config();
 
 const app = express();
 app.use(cors({
-  origin: '*',
+  origin: 'https://food-delivery-web-peach.vercel.app' || 'http://localhost:3000',
   credentials: true,
   methods:["GET","POST"]
 }));
