@@ -13,8 +13,8 @@ app.use(cookieParser());
 
 app.use(express.json())
  
-// app.use("/api/products", productRoutes);
-app.use(`${process.env.FRONTEND_URL}/api/products`, productRoutes);
+app.use("https://food-delivery-web-api.vercel.app/api/products", productRoutes);
+// app.use(`${process.env.FRONTEND_URL}/api/products`, productRoutes);
 app.use("/api/auth", authRoutes);
 
 
