@@ -10,10 +10,17 @@ dotenv.config();
 const app = express();
 app.use(cors({
   origin: process.env.FRONTEND_URL,
-  credentials: true, // This allows the backend to accept cookies from the frontend
-  methods: ['GET', 'POST', 'PUT', 'DELETE'], // Specify the allowed HTTP methods
-  allowedHeaders: ['Content-Type', 'Authorization'], // Specify the allowed header
+  credentials: true, 
+  methods: ['GET', 'POST', 'PUT', 'DELETE'], 
+  allowedHeaders: ['Content-Type', 'Authorization'], 
 }));
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", process.env.FRONTEND_URL);
+  res.header("Access-Control-Allow-Credentials", "true");
+  res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
+  res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
+  next();
+});
 app.use(cookieParser());
 
 app.use(express.json())
