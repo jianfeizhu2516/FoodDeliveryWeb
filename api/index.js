@@ -8,7 +8,12 @@ import Stripe from 'stripe';
 dotenv.config();
 
 const app = express();
-app.use(cors());
+app.use(cors({
+  origin: process.env.FRONTEND_URL,
+  credentials: true, // This allows the backend to accept cookies from the frontend
+  methods: ['GET', 'POST', 'PUT', 'DELETE'], // Specify the allowed HTTP methods
+  allowedHeaders: ['Content-Type', 'Authorization'], // Specify the allowed header
+}));
 app.use(cookieParser());
 
 app.use(express.json())
