@@ -14,17 +14,13 @@ app.use(cors({
   methods: ['GET', 'POST', 'PUT', 'DELETE'], 
   allowedHeaders: ['Content-Type', 'Authorization'], 
 }));
-app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", process.env.FRONTEND_URL);
-  res.header("Access-Control-Allow-Credentials", "true");
-  res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
-  res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
-  next();
-});
+
 app.use(cookieParser());
 
 app.use(express.json())
- 
+app.get('/', (req, res) => {
+  res.send('Hello from Express!');
+});
 app.use('/api/products', productRoutes);
 app.use("/api/auth", authRoutes);
 
@@ -56,9 +52,7 @@ app.post('/create-checkout-session', async (req, res) => {
   
 });
 
-app.get('/', (req, res) => {
-  res.send('Hello from Express!');
-});
+
 
 app.listen(8800, () => { 
   console.log('server at 8800');
