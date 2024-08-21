@@ -26,9 +26,9 @@ app.use("/api/auth", authRoutes);
 
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
-app.post('/create-checkout-session', async (req, res) => {
+app.post('/api/create-checkout-session', async (req, res) => {
   const { items } = req.body;
-  console.log('Items:', items); // 输出接收到的 items
+  console.log('Items:', items); 
   const line_items = items.map(item => ({
     price: item.price,
     quantity: item.quantity,
