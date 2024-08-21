@@ -44,7 +44,7 @@ export const FoodCard = () => {
       }
       }
        catch (err) {
-      console.log(err)
+      console.log('err是',err)
     }
   }
 
