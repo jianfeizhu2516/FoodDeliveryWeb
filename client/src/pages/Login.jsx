@@ -20,7 +20,6 @@ export const Login = () => {
                 currentInputs,
                 { withCredentials: true }
             );
-            console.log('response是', response);
             alert(response.data.message)
             if(response.status === 200) navigate('/')
         } catch (err) {
