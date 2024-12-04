@@ -113,3 +113,17 @@
 .itemRow{
     margin-top: 2vh;
 }
+.dropdown-basic{
+    background-color: rgb(224,26,26);
+    border-color: rgb(224,26,26);
+}
+.dropdown-basic:hover{
+    background-color: rgb(224,26,26);  
+    border-color:  rgb(224,26,26); 
+}
+/* 禁用 active 状态下的颜色变化 */
+.dropdown-basic:active {
+    background-color: inherit; /* 保持原有背景色 */
+    border-color: inherit; /* 保持原有边框颜色 */
+  }
+  

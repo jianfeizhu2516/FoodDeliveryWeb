@@ -4,18 +4,23 @@ import { Link } from 'react-router-dom';
 import logo from "../assets/images/res-logo.png";
 import { useSelector, useDispatch } from 'react-redux'
 import Modal from 'react-bootstrap/Modal'
-import { addItemToCart,subtractCartItem } from '../store/cartSlice.js'
+import { addItemToCart, subtractCartItem } from '../store/cartSlice.js'
 import { useNavigate } from 'react-router-dom';
+import Dropdown from 'react-bootstrap/Dropdown';
 export const Header = () => {
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+
     const dispatch = useDispatch()
 
     const totalQuantity = useSelector((state) => state.cart.totalQuantity)
-    
+
+    const currentUser = useSelector((state) => state.user.currentUser)
+
     const [subTotal, setSubTotal] = useState(0);
-    
+
     const cartItems = useSelector((state) => state.cart.cartItems)
 
-    const navigate  = useNavigate();
+    const navigate = useNavigate();
 
     useEffect(() => {
         let sum = 0;
@@ -30,11 +35,14 @@ export const Header = () => {
     }
     const [showModal, setShowModal] = useState(false);
 
-    const handleCheckout = ()=>{
+    const handleCheckout = () => {
         setShowModal(false)
         navigate("/cart")
     }
 
+    const toggleMenu = () => {
+        setIsMenuOpen(!isMenuOpen);
+    };
 
     return (
         <><div className='container'>
@@ -52,10 +60,42 @@ export const Header = () => {
                     {totalQuantity}
                 </span>
 
-                <span className='userIcon' onClick={()=>{navigate("/login");
-}}>
+                {/* <span className='userIcon' onClick={() => {
+                    currentUser == undefined ?
+                        navigate("/login") : toggleMenu();
+                }}>
                     <i class="ri-user-line"></i>
+                    {isMenuOpen &&
+                        (
+                            <ul className='dropdown-menu'>
+                                <li>'123'</li>
+                                <li>Logout</li>
+                                <li></li>
+                            </ul>
+                        )}
+                </span> */}
+
+                <span className='userIcon'>
+
+                    <Dropdown>
+                        <Dropdown.Toggle className="dropdown-basic" onBlur={() => document.querySelector('.dropdown-basic').style.backgroundColor = 'rgb(224,26,26)'}>
+                            <i class="ri-user-line"></i>
+                        </Dropdown.Toggle>
+                        {currentUser ?
+                            <Dropdown.Menu>
+                                <Dropdown.Item className='dropdown-item' disabled>{currentUser}</Dropdown.Item>
+                                <Dropdown.Item className="dropdown-item" href="/"><button onClick={() => console.log('123')}>Logout</button></Dropdown.Item>
+                            </Dropdown.Menu> :
+
+                            <Dropdown.Menu>
+                                <Dropdown.Item ><button onClick={() => navigate("/login")}>Login</button></Dropdown.Item>
+                            </Dropdown.Menu>
+
+                        }
+
+                    </Dropdown>
                 </span>
+
             </div>
         </div>
 
@@ -75,15 +115,15 @@ export const Header = () => {
                     {cartItems.map((item, index) => (
                         <div className='itemRow'>
                             <span className='itemSummary'>
-                                <h6 key={index} style={{maxWidth:"10vw"}}>{item.name}</h6>
+                                <h6 key={index} style={{ maxWidth: "10vw" }}>{item.name}</h6>
                                 <div className='buttonGroup'>
 
-                                    <button className='plusButton' onClick={()=>{dispatch(addItemToCart(item))}}>+</button>
+                                    <button className='plusButton' onClick={() => { dispatch(addItemToCart(item)) }}>+</button>
                                     <button className='quantityButton'>{item.quantity}</button>
-                                    <button className='minusButton'onClick={()=>{dispatch(subtractCartItem(item))}}>-</button>
+                                    <button className='minusButton' onClick={() => { dispatch(subtractCartItem(item)) }}>-</button>
 
                                 </div>
-                                <h6>${item.price*item.quantity}</h6>
+                                <h6>${item.price * item.quantity}</h6>
                             </span>
                         </div>
                     ))}

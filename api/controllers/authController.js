@@ -9,36 +9,19 @@ export const login = async (req, res) => {
     const q = query(usersRef, where('email', '==', email));
     const querySnapshot = await getDocs(q);
 
-    if(querySnapshot.empty){
+    if (querySnapshot.empty) {
         return res.status(404).json({ message: 'User not found!' })
     }
 
     const isPasswordCorrect = bcrypt.compareSync(password, querySnapshot.docs[0].data().password);
 
     if (!isPasswordCorrect) return res.status(400).json({ message: "Wrong username or password!" });
-    
+
     const token = jwt.sign({ email: req.body.email }, "jwtkey");
 
     res.cookie('access_token', token, { httpOnly: true })
 
     return res.status(200).json({ message: "Login successul" })
-    // const q = 'SELECT * FROM users WHERE email = ?';
-
-    // db.query(q, [req.body.email], (err, results) => {
-    //     if (err) return res.status(500).json({ message: err.message })
-    //     console.log('results是是', results)
-    //     if (results?.length === 0) return res.status(404).json({ message: 'User not found!' })
-    //     //check password
-    //     const isPasswordCorrect = bcrypt.compareSync(req.body.password, results[0].password);
-
-    //     if (!isPasswordCorrect) return res.status(400).json({ message: "Wrong username or password!" });
-
-    //     const token = jwt.sign({ email: req.body.email }, "jwtkey");
-
-    //     res.cookie('access_token', token, { httpOnly: true })
-
-    //     return res.status(200).json({ message: "Login successul" })
-    // })
 }
 
 export const signup = async (req, res) => {
@@ -70,4 +53,16 @@ export const signup = async (req, res) => {
         console.log('sign up failed', err)
     }
 
+}
+
+export const getUserInfo = async (req, res) => {
+    const token = req.cookies.access_token;
+    if (!token) {
+        return res.status(403).json({ message: 'Not authenticated' });
+    } try {
+        const decoded = jwt.verify(token, 'jwtkey');
+        return res.json({ email: decoded.email });
+    } catch (err) {
+        return res.status(401).json({ message: 'Invalid token' });
+    }
 }

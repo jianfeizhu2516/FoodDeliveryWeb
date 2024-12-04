@@ -21,12 +21,11 @@ export const Login = () => {
                 { withCredentials: true }
             );
             alert(response.data.message)
-            if(response.status === 200) navigate('/')
+            if (response.status === 200) navigate('/')
         } catch (err) {
             console.log('err is', err)
             alert(err.response?.data?.message || 'An error occurred');
         }
-
     }
     return (
 
