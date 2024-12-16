@@ -2,7 +2,10 @@ import React, { useEffect, useState } from 'react'
 import "../styles/login.scss"
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
+import { useDispatch } from 'react-redux'
+import { userLogin } from '../store/userSlice.js'
 export const Login = () => {
+    const dispatch = useDispatch()
     const [currentInputs, setInputs] = useState({
         email: "",
         password: ""
@@ -21,7 +24,11 @@ export const Login = () => {
                 { withCredentials: true }
             );
             alert(response.data.message)
-            if (response.status === 200) navigate('/')
+            if (response.status === 200) {
+                dispatch(userLogin(currentInputs.email))
+                navigate('/')
+            }
+        
         } catch (err) {
             console.log('err is', err)
             alert(err.response?.data?.message || 'An error occurred');

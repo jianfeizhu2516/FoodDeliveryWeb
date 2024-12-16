@@ -7,6 +7,7 @@ import Modal from 'react-bootstrap/Modal'
 import { addItemToCart, subtractCartItem } from '../store/cartSlice.js'
 import { useNavigate } from 'react-router-dom';
 import Dropdown from 'react-bootstrap/Dropdown';
+import { userLogout } from '../store/userSlice.js'
 export const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -44,6 +45,10 @@ export const Header = () => {
         setIsMenuOpen(!isMenuOpen);
     };
 
+    const logOut = () => {
+        dispatch(userLogout)
+    }
+
     return (
         <><div className='container'>
             <img src={logo} alt="Tasty Treat" className='logo' />
@@ -60,20 +65,7 @@ export const Header = () => {
                     {totalQuantity}
                 </span>
 
-                {/* <span className='userIcon' onClick={() => {
-                    currentUser == undefined ?
-                        navigate("/login") : toggleMenu();
-                }}>
-                    <i class="ri-user-line"></i>
-                    {isMenuOpen &&
-                        (
-                            <ul className='dropdown-menu'>
-                                <li>'123'</li>
-                                <li>Logout</li>
-                                <li></li>
-                            </ul>
-                        )}
-                </span> */}
+            
 
                 <span className='userIcon'>
 
@@ -83,8 +75,8 @@ export const Header = () => {
                         </Dropdown.Toggle>
                         {currentUser ?
                             <Dropdown.Menu>
-                                <Dropdown.Item className='dropdown-item' disabled>{currentUser}</Dropdown.Item>
-                                <Dropdown.Item className="dropdown-item" href="/"><button onClick={() => console.log('123')}>Logout</button></Dropdown.Item>
+                                <Dropdown.Item className='dropdown-item' disabled>{currentUser === undefined ? "You are not logged in" : currentUser}</Dropdown.Item>
+                                <Dropdown.Item className="dropdown-item" href="/"><button onClick={logOut}>Logout</button></Dropdown.Item>
                             </Dropdown.Menu> :
 
                             <Dropdown.Menu>

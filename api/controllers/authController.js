@@ -2,7 +2,7 @@ import db from "../db.js"
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import { doc, setDoc, addDoc, collection, getDoc, query, where, getDocs } from "firebase/firestore";
-export const login = async (req, res) => {
+export const userLogin = async (req, res) => {
     const { email, password } = req.body;
 
     const usersRef = collection(db, 'users');
@@ -33,7 +33,7 @@ export const signup = async (req, res) => {
     const querySnapshot = await getDocs(q);
 
     if (!querySnapshot.empty) {
-        return res.json({ message: "Email has alrady been used" })
+        return res.status(409).json({ message: "Email has alrady been used" })
     }
 
     const salt = bcrypt.genSaltSync(10);
@@ -46,11 +46,12 @@ export const signup = async (req, res) => {
             email: email,
             password: hashedPassword
         })
-        return res.status(201).cookie("access_token", token, {
+        return res.status(200).cookie("access_token", token, {
             httpOnly: true
         }).json({ message: 'User registration successful' })
     } catch (err) {
         console.log('sign up failed', err)
+        return res.status(500).json({ message: "Internal server error" });
     }
 
 }

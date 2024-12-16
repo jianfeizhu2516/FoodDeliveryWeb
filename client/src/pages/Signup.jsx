@@ -18,6 +18,9 @@ export const Signup = () => {
         try {
             const response = await axios.post(`${process.env.REACT_APP_API_URL}/api/auth/signup`, currentInputs);
             alert(response.data.message);
+            if (response.status === 200) {
+                navigate('/login')
+            }
         }
         catch (err) {
             const message = err.response?.data?.message || 'An error occurred';
