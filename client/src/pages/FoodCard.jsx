@@ -1,19 +1,29 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import Card from 'react-bootstrap/Card';
 import "../styles/foodCard.scss"
 import { Row, Col } from 'react-bootstrap';
 import burgerLogo from "../assets/images/hamburger.png"
 import breadLogo from "../assets/images/bread.png"
 import pizzaLogo from "../assets/images/pizza.png"
-import { useDispatch } from 'react-redux'
 import { addItemToCart } from '../store/cartSlice.js'
 import { useEffect } from 'react';
 import axios from "axios";
+import { useSelector, useDispatch } from 'react-redux'
 export const FoodCard = () => {
+
   const dispatch = useDispatch()
+
+  const cartItems = useSelector((state) => state.cart.cartItems)
+
+  useEffect(() => {
+     // Persist cart data to localStorage
+    localStorage.setItem('cart', JSON.stringify(cartItems));
+  }, [cartItems]);
+
   const addToCartClick = (item) => {
     dispatch(addItemToCart(item))
   }
+
 
   const [selectedCategory, setCategory] = useState('');
 

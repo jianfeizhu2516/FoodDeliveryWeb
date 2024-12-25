@@ -1,9 +1,17 @@
 import { createSlice } from '@reduxjs/toolkit'
-const items = []
+
+const cartFromLocalStorage = JSON.parse(localStorage.getItem('cart')) || [];
+const calculateTotalQuantity = (items) =>{
+  return  items.reduce((total, item) => total + item.quantity, 0);
+}
+const calculateSubTotal = (items) =>{
+  return items.reduce((total, item) => total + item.quantity * item.price, 0);
+}
+  
 const initialState = {
-  cartItems: items,
-  totalQuantity: 0,
-  subTotal: 0,
+  cartItems: cartFromLocalStorage,
+  totalQuantity: calculateTotalQuantity(cartFromLocalStorage),
+  subTotal: calculateSubTotal(cartFromLocalStorage),
 };
 
 
